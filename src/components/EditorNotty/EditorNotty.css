@@ -1,0 +1,17 @@
+.editor-notty{
+    position: relative;
+    background-color: greenyellow;
+    width: 90%;
+    height: 85vh;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.editor-notty:first-child{
+    height: 85%;
+    width: 50%;
+    background-color: black;
+}
+

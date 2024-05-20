@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-markdown": "^6.2.5",
+    "@uiw/react-codemirror": "^4.22.1",
     "preact": "^10.19.6"
   },
   "devDependencies": {

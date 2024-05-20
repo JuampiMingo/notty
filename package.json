@@ -11,6 +11,7 @@
   "dependencies": {
     "@codemirror/lang-markdown": "^6.2.5",
     "@codemirror/language-data": "^6.5.1",
+    "@uiw/codemirror-themes": "^4.22.1",
     "@uiw/react-codemirror": "^4.22.1",
     "preact": "^10.19.6",
     "rehype-sanitize": "^6.0.0",

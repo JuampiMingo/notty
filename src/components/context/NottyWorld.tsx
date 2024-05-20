@@ -1,15 +1,23 @@
 import { createContext } from "preact";
 
 
-
-interface Notty {
-    title: string,
-    content:string
+export type ThemeNotty = {
+    background: string,
+    color: string,
+    font: string
 }
 
-export const NottyWorld = createContext<Notty>(
+
+export interface Notty {
+    theme: Readonly<ThemeNotty>
+}
+
+export const NottyConfig= createContext<Notty>(
     {
-        title: 'Hello World',
-        content: '## Hello World'
+        theme: {
+            background: '#000000',
+            color: '#ffffff',
+            font: 'sans-serif'
+        }
     }
 )

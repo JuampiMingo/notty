@@ -1,4 +1,9 @@
-import {useEffect, useRef} from 'preact/hooks'
+import {useEffect, useRef, useState} from 'preact/hooks'
+import rehypeSanitize from 'rehype-sanitize'
+import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import {unified} from 'unified'
 import './NottyView.css'
 
 type Props = {
@@ -6,13 +11,19 @@ type Props = {
 }
 
 function NottyView({content}: Props){
-
     const contentWrapper = useRef<HTMLDivElement | null>(null)
 
     useEffect(() => {
-        if(contentWrapper.current){
-            contentWrapper.current.innerHTML = content
-        }
+
+        unified().use(remarkParse).use(remarkRehype).use(rehypeSanitize).use(rehypeStringify).process(content, (err, file) => {
+            if (err) throw err
+            if (contentWrapper.current) {
+                contentWrapper.current.innerHTML = String(file);
+            }
+        })
+
+       
+        
     }, [content])
 
     return (

@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'preact/hooks'
 import './EditorNotty.css'
 import CodeMirror from '@uiw/react-codemirror'
+import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
+import { languages } from '@codemirror/language-data'
 import NottyView from './components/NottyView.tsx'
 type Props = {
     initialMsg: string
@@ -29,7 +31,7 @@ function EditorNotty({initialMsg}: Props){
             className='code-mirror-wrapper'
             height='400px'
             width='500px'
-            //extensions={[markdown()]}
+            extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]}
             onChange={onChange}
             />
             <NottyView content={notty}/>
